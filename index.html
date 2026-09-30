@@ -104,6 +104,40 @@ section.block{padding:clamp(4rem,9vw,7.5rem) 0;border-top:1px solid var(--line)}
 .ticker span::after{content:"/";margin:0 1.4rem;opacity:.35}
 @keyframes roll{to{transform:translateX(-50%)}}
 
+/* Prendi il tuo spazio */
+.shop{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:clamp(1.5rem,4vw,4rem);align-items:start}
+.viewer{position:relative;aspect-ratio:720/1000;background:radial-gradient(120% 80% at 50% 35%,#1a1a17 0%,#0b0b0b 60%,#050505 100%);border:1px solid var(--line2);overflow:hidden;cursor:grab;touch-action:pan-y;position:sticky;top:5rem}
+.viewer:active{cursor:grabbing}
+.viewer canvas{display:block;width:100%!important;height:100%!important}
+.vbadge{position:absolute;left:0;top:0;z-index:2;background:var(--accent);color:#000;padding:.55rem .9rem;display:flex;gap:.6rem;align-items:baseline}
+.vbadge span{font-stretch:62%;font-weight:900;text-transform:uppercase;font-size:1.5rem;line-height:1}
+.vbadge em{font-style:normal;font-size:.78rem;font-weight:700}
+.vhint{position:absolute;right:.8rem;bottom:.7rem;z-index:2;font-size:.78rem;color:var(--muted)}
+.vfallback{display:none;position:absolute;inset:0;align-items:center;justify-content:center;text-align:center;padding:2rem;color:var(--muted)}
+.steps{list-style:none;margin:0;padding:0}
+.steps>li{padding:1.3rem 0;border-top:1px solid var(--line)}
+.steps>li:first-child{border-top:0;padding-top:0}
+.steps label,.steps .lbl{display:block;font-weight:700;font-size:1.05rem;margin-bottom:.7rem}
+.steps label b,.steps .lbl b{color:var(--accent);font-stretch:62%;font-weight:900;font-size:1.3rem;margin-right:.4rem}
+.selwrap{position:relative}
+.selwrap::after{content:"▾";position:absolute;right:1rem;top:50%;transform:translateY(-50%);color:var(--accent);pointer-events:none}
+.selwrap select{width:100%;appearance:none;-webkit-appearance:none;background:#0C0C0C;color:var(--text);border:1px solid var(--line2);padding:.95rem 2.5rem .95rem 1rem;font:inherit;font-size:1rem;border-radius:0;cursor:pointer}
+.selwrap select:focus{outline:2px solid var(--accent);outline-offset:2px}
+.upload{display:flex!important;align-items:center;justify-content:center;border:1px dashed var(--line2);padding:.9rem;cursor:pointer;font-weight:600!important;font-size:.95rem!important;margin:0!important;transition:border-color .2s}
+.upload:hover{border-color:var(--accent)}
+.upload input{position:absolute;width:1px;height:1px;opacity:0}
+.tiny{font-size:.8rem;color:#77766f;margin:.55rem 0 0}
+.tiny a,.linkish{color:var(--text)}
+.linkish{background:none;border:0;padding:0;font:inherit;text-decoration:underline;cursor:pointer}
+.price{display:flex;align-items:baseline;gap:.8rem;flex-wrap:wrap;margin-bottom:.8rem}
+.price b{font-stretch:62%;font-weight:900;font-size:3.6rem;line-height:.9;color:var(--accent)}
+.price span{font-size:.88rem;color:var(--muted)}
+.incl{list-style:none;padding:0;margin:0 0 1.2rem;font-size:.92rem;color:var(--muted)}
+.incl li{padding:.25rem 0 .25rem 1.4rem;position:relative}
+.incl li::before{content:"✓";position:absolute;left:0;color:var(--accent);font-weight:700}
+.btn.wide{display:flex;justify-content:center;width:100%}
+@media (max-width:900px){.shop{grid-template-columns:1fr}.viewer{position:relative;top:0;max-width:520px;width:100%;margin:0 auto}}
+
 /* Percorso */
 .road{display:grid;grid-template-columns:repeat(3,1fr);position:relative;margin:1rem 0 4rem}
 .road::before{content:"";position:absolute;left:0;right:0;top:11px;height:2px;background:linear-gradient(90deg,var(--text) 0 33%,var(--line2) 33%)}
@@ -194,11 +228,12 @@ footer .big{font-stretch:62%;font-weight:900;text-transform:uppercase;font-size:
   <div class="wrap">
     <a class="brand" href="#"><b>Davide Sanrocco</b><span>Atleta Hyrox</span></a>
     <nav>
+      <a href="#spazio">Spazi</a>
       <a href="#percorso">Percorso</a>
-      <a href="#partner">Compagni di viaggio</a>
+      <a href="#partner">Su misura</a>
       <a href="#gare">Gare</a>
       <a href="#in-gara">In gara</a>
-      <a class="btn sm" href="#partner">Unisciti al viaggio</a>
+      <a class="btn sm" href="#spazio">Prendi il tuo spazio</a>
     </nav>
   </div>
 </header>
@@ -212,7 +247,7 @@ footer .big{font-stretch:62%;font-weight:900;text-transform:uppercase;font-size:
       <h1 class="cond">Verso<br>il <em>Pro.</em></h1>
       <p class="lead">Otto chilometri, otto stazioni, un cronometro da battere. Prima sotto l'ora in Open, poi la categoria Pro. Cerco realtà che vogliano accompagnarmi in questo viaggio.</p>
       <div class="ctas">
-        <a class="btn" href="#partner">Unisciti al viaggio <span class="arr">→</span></a>
+        <a class="btn" href="#spazio">Prendi il tuo spazio <span class="arr">→</span></a>
         <a class="btn line" href="https://www.instagram.com/davidesanrocco/" target="_blank" rel="noopener">Instagram</a>
       </div>
     </div>
@@ -234,6 +269,52 @@ footer .big{font-stretch:62%;font-weight:900;text-transform:uppercase;font-size:
   <span>SkiErg</span><span>Sled Push</span><span>Sled Pull</span><span>Burpee Broad Jumps</span><span>Rowing</span><span>Farmers Carry</span><span>Sandbag Lunges</span><span>Wall Balls</span>
   <span>SkiErg</span><span>Sled Push</span><span>Sled Pull</span><span>Burpee Broad Jumps</span><span>Rowing</span><span>Farmers Carry</span><span>Sandbag Lunges</span><span>Wall Balls</span>
 </div></div>
+
+<section class="block" id="spazio">
+  <div class="wrap">
+    <p class="eyebrow rv">Prendi il tuo spazio</p>
+    <h2 class="rv">Scegli dove.<br>Il resto lo faccio io.</h2>
+    <p class="muted rv" style="font-size:1.05rem;max-width:56ch;margin-bottom:2.2rem">Scegli il punto, guarda subito l'anteprima con il tuo logo e prenotalo in due minuti. Porto il tuo marchio in gara a Milano e Verona.</p>
+    <div class="shop rv">
+      <div class="viewer" id="viewer" aria-label="Anteprima a 360° con il logo: trascina per ruotare">
+        <div class="vbadge"><span id="vSpot">Petto</span><em id="vType">Divisa</em></div>
+        <div class="vhint">↔ Trascina per ruotare</div>
+        <div class="vfallback" id="vFallback">Anteprima non disponibile su questo browser.</div>
+      </div>
+      <div class="order">
+        <ol class="steps">
+          <li>
+            <label for="spotSel"><b>01</b> Dove vuoi il tuo logo?</label>
+            <div class="selwrap"><select id="spotSel"></select></div>
+          </li>
+          <li>
+            <span class="lbl"><b>02</b> Guarda l'anteprima con il tuo logo</span>
+            <label class="upload"><input type="file" id="logoIn" accept="image/png,image/jpeg,image/svg+xml,image/webp"><span id="upTxt">Carica il tuo logo</span></label>
+            <p class="tiny">Il file resta sul tuo dispositivo, serve solo per l'anteprima.</p>
+          </li>
+          <li>
+            <span class="lbl"><b>03</b> Prenota</span>
+            <div class="price"><b id="price">500 €</b><span id="priceNote">stagione 2026/27 · Milano + Verona</span></div>
+            <ul class="incl">
+              <li>Il tuo logo in gara a Milano e Verona</li>
+              <li>Un post dedicato e il tag nelle stories di gara</li>
+              <li>Foto di gara in alta risoluzione da usare sui tuoi canali</li>
+              <li>Il tuo nome tra chi mi accompagna, qui sul sito</li>
+            </ul>
+            <a class="btn wide" id="payBtn" href="#" target="_blank" rel="noopener">Prendi questo spazio <span class="arr">→</span></a>
+            <p class="tiny" id="payNote"></p>
+          </li>
+          <li>
+            <span class="lbl"><b>04</b> Mandami il logo</span>
+            <a class="btn line wide" id="sendLogo" href="#" target="_blank" rel="noopener">Invia il logo via Gmail</a>
+            <p class="tiny">Oppure su <a href="https://ig.me/m/davidesanrocco" target="_blank" rel="noopener">Instagram</a>. Ti confermo lo spazio appena ricevo pagamento e logo. Ti serve un documento fiscale? <button type="button" class="linkish" data-contact>Scrivimi prima di pagare</button>.</p>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
 
 <section class="block" id="percorso">
   <div class="wrap">
@@ -264,13 +345,13 @@ footer .big{font-stretch:62%;font-weight:900;text-transform:uppercase;font-size:
       </div>
     </div>
     <div class="rv">
-      <p class="eyebrow">Cosa porto io</p>
-      <p class="muted" style="font-size:1.02rem">Ogni collaborazione, anche piccola, per me conta. Se hai un'attività, un negozio, uno studio o un'azienda e ti va di fare questa strada con me, ecco cosa porto io.</p>
+      <p class="eyebrow">Su misura</p>
+      <p class="muted" style="font-size:1.02rem">Vuoi più gare, più spazi o un progetto tutto tuo? Ogni collaborazione, anche piccola, per me conta: scrivimi e la costruiamo insieme.</p>
       <ul class="offer">
-        <li><i>01</i><div><h3>Sulla divisa</h3><p>Il tuo logo viene in gara con me, in ogni foto e ogni video.</p></div></li>
-        <li><i>02</i><div><h3>Tattoo in gara</h3><p>Un tatuaggio temporaneo con il tuo marchio, dalla partenza fino al traguardo.</p></div></li>
-        <li><i>03</i><div><h3>Sui miei social</h3><p>Ti racconto nei post e nelle stories, e se ti va giriamo qualcosa insieme da te.</p></div></li>
-        <li><i>04</i><div><h3>Aggiornamenti</h3><p>Dopo ogni gara ti mando tempi, foto e com'è andata, come a un compagno di squadra.</p></div></li>
+        <li><i>01</i><div><h3>Tutta la stagione</h3><p>Oltre a Milano e Verona, il tuo marchio con me in ogni gara dell'anno.</p></div></li>
+        <li><i>02</i><div><h3>Divisa completa</h3><p>Il tuo marchio protagonista su tutto il kit da gara.</p></div></li>
+        <li><i>03</i><div><h3>Contenuti da te</h3><p>Foto e video girati insieme nella tua attività, per i miei e i tuoi canali.</p></div></li>
+        <li><i>04</i><div><h3>Prodotti o servizi</h3><p>Collaborazioni anche in cambio di prodotti o servizi, non solo in denaro.</p></div></li>
       </ul>
       <button class="btn" type="button" data-contact>Scrivimi, parliamone <span class="arr">→</span></button>
       <p class="fine">La mia mail: <b style="color:var(--text)">davidesanrocco0308@gmail.com</b>. Niente formule fisse: un contributo, un prodotto, un servizio. Ne parliamo con calma, magari davanti a un caffè.</p>
@@ -343,6 +424,18 @@ footer .big{font-stretch:62%;font-weight:900;text-transform:uppercase;font-size:
    (es. "logo-rossi.png"), oppure lascia "" per mostrare solo il nome.
    ========================================================= */
 const CONFIG = {
+  // Link di pagamento: Revolut per tutti, oppure un link dedicato per ogni spazio (campo "link")
+  pagamento: "https://revolut.me/davidetlgo",
+  // Listino spazi: modifica prezzi e metti preso: true quando uno spazio viene venduto
+  listino: [
+    { id: "petto",       nome: "Petto",       gruppo: "divisa", prezzo: 500, preso: false, link: "" },
+    { id: "schiena",     nome: "Schiena",     gruppo: "divisa", prezzo: 350, preso: false, link: "" },
+    { id: "coscia",      nome: "Pantaloncino", gruppo: "divisa", prezzo: 250, preso: false, link: "" },
+    { id: "spalla",      nome: "Spalla",      gruppo: "tattoo", prezzo: 200, preso: false, link: "" },
+    { id: "bicipite",    nome: "Bicipite",    gruppo: "tattoo", prezzo: 180, preso: false, link: "" },
+    { id: "avambraccio", nome: "Avambraccio", gruppo: "tattoo", prezzo: 150, preso: false, link: "" },
+    { id: "polpaccio",   nome: "Polpaccio",   gruppo: "tattoo", prezzo: 120, preso: false, link: "" }
+  ],
   spazi: 4,           // quanti spazi partner mostrare in totale
   partner: [
     // { nome: "Nome Azienda", settore: "Settore", logo: "logo-azienda.png", sito: "https://..." },
@@ -361,7 +454,7 @@ const CONFIG = {
     html += p.sito ? `<a class="slot" href="${esc(p.sito)}" target="_blank" rel="noopener">${inner}</a>` : `<div class="slot">${inner}</div>`;
   });
   for (let i = CONFIG.partner.length; i < total; i++)
-    html += `<button type="button" class="slot free" data-contact><span class="plus">+</span><span class="ptype">Potresti esserci tu</span></button>`;
+    html += `<a class="slot free" href="#spazio"><span class="plus">+</span><span class="ptype">Potresti esserci tu</span></a>`;
   box.innerHTML = html;
   document.getElementById("slotCount").textContent = "C'è posto anche per te";
 })();
@@ -407,6 +500,7 @@ const CONFIG = {
   const arena = document.getElementById("arena"), cv = document.getElementById("avatarCanvas"), ctx = cv.getContext("2d");
   const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const imgs = FRAMES.map(src => { const i = new Image(); i.src = src; return i; });
+  window.__avatarImgs = imgs;
   const n = imgs.length;
   let pos = 0, dragging = false, lastX = 0, auto = !reduced, resume, last = 0;
   const wrap = v => ((v % n) + n) % n;
@@ -425,6 +519,150 @@ const CONFIG = {
   const end = () => { if (!dragging) return; dragging = false; if (!reduced) { auto = false; resume = setTimeout(() => auto = true, 1800); } };
   arena.addEventListener("pointerup", end);
   arena.addEventListener("pointercancel", end);
+})();
+/* ---------- Prendi il tuo spazio: listino, anteprima 3D e prenotazione ---------- */
+(function(){
+  const S = CONFIG.listino;
+  const sel = document.getElementById("spotSel");
+  const eur = n => n.toLocaleString("it-IT") + " €";
+  const groups = {divisa: "Sulla divisa", tattoo: "Tattoo temporaneo in gara"};
+  Object.keys(groups).forEach(g => {
+    const og = document.createElement("optgroup"); og.label = groups[g];
+    S.filter(s => s.gruppo === g).forEach(s => {
+      const o = document.createElement("option"); o.value = s.id;
+      o.textContent = s.nome + " · " + (s.preso ? "già preso" : eur(s.prezzo));
+      o.disabled = !!s.preso; og.appendChild(o);
+    });
+    sel.appendChild(og);
+  });
+  const first = S.find(s => !s.preso); if (first) sel.value = first.id;
+
+  const EMAIL = "davidesanrocco0308@gmail.com";
+  function update(fromUser){
+    const s = S.find(x => x.id === sel.value); if (!s) return;
+    document.getElementById("price").textContent = eur(s.prezzo);
+    document.getElementById("vSpot").textContent = s.nome;
+    document.getElementById("vType").textContent = s.gruppo === "divisa" ? "Divisa" : "Tattoo";
+    const pay = document.getElementById("payBtn");
+    pay.href = s.link || CONFIG.pagamento;
+    pay.innerHTML = "Prendi questo spazio · " + eur(s.prezzo) + ' <span class="arr">→</span>';
+    document.getElementById("payNote").textContent = s.link ? "Pagamento sicuro con carta, Apple Pay o Google Pay."
+      : "Si apre la mia pagina Revolut: inserisci " + eur(s.prezzo) + " e, se puoi, il nome della tua attività nella nota. Paghi con carta, Apple Pay o Google Pay, non serve avere Revolut.";
+    const subj = "Spazio " + s.nome + " (" + eur(s.prezzo) + ")";
+    const body = "Ciao Davide,\n\nho prenotato lo spazio \"" + s.nome + "\" (" + eur(s.prezzo) + ").\nAttività: ...\nReferente e telefono: ...\n\nTi allego il logo.\n\nA presto!";
+    document.getElementById("sendLogo").href = "https://mail.google.com/mail/?view=cm&fs=1&to=" + EMAIL + "&su=" + encodeURIComponent(subj) + "&body=" + encodeURIComponent(body);
+    if (window.__spot3d) (fromUser ? window.__spot3d.select(s.id) : window.__spot3d.show(s.id));
+  }
+  sel.addEventListener("change", () => update(true));
+
+  document.getElementById("logoIn").addEventListener("change", e => {
+    const f = e.target.files && e.target.files[0]; if (!f) return;
+    const r = new FileReader();
+    r.onload = () => { if (window.__spot3d) window.__spot3d.setLogo(r.result); document.getElementById("upTxt").textContent = "✓ " + f.name + " · cambia"; };
+    r.readAsDataURL(f);
+  });
+
+  /* ---------- Anteprima sull'avatar a 360° ---------- */
+  function init3d(){
+    const box = document.getElementById("viewer");
+    const imgs = window.__avatarImgs; if (!imgs || !imgs.length) { document.getElementById("vFallback").style.display = "flex"; return; }
+    const n = imgs.length;
+    const cv = document.createElement("canvas"); cv.width = 720; cv.height = 1000; box.appendChild(cv);
+    const ctx = cv.getContext("2d");
+    const CX = 80, CY = 60, K = 2;            // ritaglio del fotogramma (520x784) sul corpo
+    const X0 = 260;                           // asse di rotazione nel fotogramma
+    // angolo del corpo per alcuni fotogrammi chiave (la rotazione non è perfettamente regolare)
+    const KEY = [[0,5],[8,55],[17,140],[25,180],[33,200],[42,228],[50,275],[58,320],[n,365]];
+    const ang = f => { f = ((f % n) + n) % n; for (let k = 0; k < KEY.length - 1; k++){ const [a, da] = KEY[k], [b, db] = KEY[k+1]; if (f <= b) return (da + (db - da) * (f - a) / (b - a)) * Math.PI / 180; } return 0; };
+    const frameFor = th => { let best = 0, bd = 9; for (let f = 0; f < n; f++){ let d = Math.abs(((ang(f) - th) % (2*Math.PI) + 3*Math.PI) % (2*Math.PI) - Math.PI); if (d < bd){ bd = d; best = f; } } return best; };
+    // punti: angolo sul corpo (phi), distanza dall'asse (r), altezza (y) e larghezza del logo (w), in pixel del fotogramma
+    const D = Math.PI / 180;
+    const SP = {
+      petto:       {phi: 0,       r: 42,  y: 228, w: 70},
+      schiena:     {phi: 180*D,   r: 40,  y: 250, w: 96},
+      coscia:      {phi: 25*D,    r: 66,  y: 346, w: 44},
+      // sulle braccia alzate il modello a cilindro non basta: posizioni misurate fotogramma per fotogramma (braccio destro)
+      spalla:      {w: 34, best: 0, track: [[54,215,198],[58,200,201],[62,205,203],[67,203,204],[71,210,203],[75,225,193]]},
+      bicipite:    {w: 34, best: 0, track: [[54,208,202],[58,174,215],[62,174,221],[67,175,221],[71,176,221],[75,203,205]]},
+      avambraccio: {w: 28, best: 0, track: [[54,230,170],[58,190,166],[62,183,173],[67,175,182],[71,189,173],[75,228,166]]},
+      polpaccio:   {phi: 180*D,   r: 26,  y: 476, w: 30, dx: -28}
+    };
+    function placeholder(){
+      const c = document.createElement("canvas"); c.width = 512; c.height = 256;
+      const g = c.getContext("2d");
+      g.fillStyle = "#FFD500"; g.fillRect(0, 0, 512, 256);
+      g.fillStyle = "#000"; g.font = "900 78px Archivo, 'Arial Narrow', Arial, sans-serif"; g.textAlign = "center"; g.textBaseline = "middle";
+      g.fillText("IL TUO", 256, 92); g.fillText("LOGO", 256, 172);
+      return c;
+    }
+    let logo = placeholder(), cur = "petto";
+    let pos = 0, target = null, spin = true, drag = false, lx = 0, last = 0;
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const wrap = v => ((v % n) + n) % n;
+
+    function draw(){
+      const f = Math.floor(wrap(pos)), im = imgs[f];
+      if (!im || !im.complete) return;
+      ctx.drawImage(im, CX, CY, cv.width / K, cv.height / K, 0, 0, cv.width, cv.height);
+      const s = SP[cur]; if (!s) return;
+      if (s.track) { drawTracked(s, wrap(pos)); return; }
+      const a = s.phi + ang(f), c = Math.cos(a);
+      if (c < .12) return;                     // il punto è dall'altra parte del corpo
+      const x = (X0 + (s.dx || 0) + s.r * Math.sin(a) - CX) * K, y = (s.y - CY) * K;
+      const w = s.w * K, h = w * logo.height / logo.width;
+      ctx.save();
+      ctx.globalAlpha = Math.min(1, (c - .12) / .25) * .95;
+      ctx.translate(x, y); ctx.scale(Math.max(c, .2), 1);
+      ctx.shadowColor = "rgba(0,0,0,.35)"; ctx.shadowBlur = 6;
+      ctx.drawImage(logo, -w/2, -h/2, w, h);
+      ctx.restore();
+    }
+    function drawTracked(s, p){
+      const T = s.track, lo = T[0][0], hi = T[T.length-1][0];
+      let u = p; if (u < lo - 1) u += n;                 // i fotogrammi dopo lo 0 proseguono la sequenza
+      if (u < lo - 1 || u > hi + 1) return;
+      let k = 0; while (k < T.length - 2 && u > T[k+1][0]) k++;
+      const A = T[k], B = T[k+1], q = Math.max(0, Math.min(1, (u - A[0]) / (B[0] - A[0])));
+      const x = (A[1] + (B[1] - A[1]) * q - CX) * K, y = (A[2] + (B[2] - A[2]) * q - CY) * K;
+      const edge = Math.min(u - (lo - 1), (hi + 1) - u);
+      const w = s.w * K, h = w * logo.height / logo.width;
+      ctx.save(); ctx.globalAlpha = Math.max(0, Math.min(1, edge / 2)) * .95;
+      ctx.shadowColor = "rgba(0,0,0,.35)"; ctx.shadowBlur = 6;
+      ctx.drawImage(logo, x - w/2, y - h/2, w, h); ctx.restore();
+    }
+    function tick(ts){
+      if (ts - last > 1000 / 16){
+        last = ts;
+        if (target !== null && !drag){
+          let d = target - wrap(pos); if (d > n/2) d -= n; if (d < -n/2) d += n;
+          if (Math.abs(d) < 1) { pos = target; target = null; } else pos = wrap(pos + Math.sign(d) * Math.max(1, Math.min(3, Math.abs(d) / 4)));
+        } else if (spin && !drag && !reduced) pos = wrap(pos + 1);
+      }
+      draw(); requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+
+    box.addEventListener("pointerdown", e => { drag = true; spin = false; target = null; lx = e.clientX; box.setPointerCapture(e.pointerId); });
+    box.addEventListener("pointermove", e => { if (!drag) return; pos = wrap(pos - (e.clientX - lx) / box.clientWidth * n); lx = e.clientX; });
+    const endDrag = () => { drag = false; };
+    box.addEventListener("pointerup", endDrag); box.addEventListener("pointercancel", endDrag);
+
+    window.__spot3d = {
+      select(id){ cur = id; spin = false; const s = SP[id]; target = s.track ? s.best : frameFor(-s.phi); },
+      show(id){ cur = id; },
+      setLogo(src){
+        const img = new Image();
+        img.onload = () => {
+          const iw = img.naturalWidth || 512, ih = img.naturalHeight || 256, k = Math.min(1, 800 / Math.max(iw, ih));
+          const c = document.createElement("canvas"); c.width = Math.max(1, Math.round(iw * k)); c.height = Math.max(1, Math.round(ih * k));
+          c.getContext("2d").drawImage(img, 0, 0, c.width, c.height); logo = c;
+        };
+        img.src = src;
+      }
+    };
+  }
+  try { init3d(); } catch (err) { document.getElementById("vFallback").style.display = "flex"; }
+  update(false);
 })();
 </script>
 </body>
