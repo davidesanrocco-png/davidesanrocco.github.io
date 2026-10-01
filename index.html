@@ -311,7 +311,7 @@ footer .big{font-stretch:62%;font-weight:900;text-transform:uppercase;font-size:
           <li>
             <span class="lbl"><b>04</b> Invia il logo</span>
             <a class="btn line wide" id="sendLogo" href="#" target="_blank" rel="noopener">Invia il logo via Gmail</a>
-            <p class="tiny">In alternativa, tramite <a href="https://ig.me/m/davidesanrocco" target="_blank" rel="noopener">Instagram</a>. La prenotazione è confermata alla ricezione del pagamento e del logo. Per esigenze di fatturazione, <button type="button" class="linkish" data-contact>contattami prima del pagamento</button>.</p>
+            <p class="tiny">In alternativa, tramite <a href="https://ig.me/m/davidesanrocco" target="_blank" rel="noopener">Instagram</a>. La prenotazione è confermata alla ricezione del pagamento e del logo. Per ricevuta o esigenze amministrative, <button type="button" class="linkish" data-contact>contattami prima del pagamento</button>.</p>
           </li>
         </ol>
       </div>
@@ -553,7 +553,7 @@ const CONFIG = {
     document.getElementById("payNote").textContent = s.link ? "Pagamento sicuro con carta, Apple Pay o Google Pay."
       : "Verrai indirizzato alla pagina di pagamento Revolut: inserisci l'importo di " + eur(s.prezzo) + " e il nome dell'azienda nella causale. Puoi pagare con carta, Apple Pay o Google Pay, senza un account Revolut.";
     const subj = "Prenotazione spazio " + s.nome + " (" + eur(s.prezzo) + ")";
-    const body = "Buongiorno Davide,\n\nconfermiamo la prenotazione dello spazio \"" + s.nome + "\" (" + eur(s.prezzo) + ").\nAzienda: ...\nReferente e telefono: ...\nDati per la fatturazione (se necessaria): ...\n\nIn allegato il logo in alta risoluzione.\n\nCordiali saluti";
+    const body = "Buongiorno Davide,\n\nconfermiamo la prenotazione dello spazio \"" + s.nome + "\" (" + eur(s.prezzo) + ").\nAzienda: ...\nReferente e telefono: ...\nDati per la ricevuta (se necessaria): ...\n\nIn allegato il logo in alta risoluzione.\n\nCordiali saluti";
     document.getElementById("sendLogo").href = "https://mail.google.com/mail/?view=cm&fs=1&to=" + EMAIL + "&su=" + encodeURIComponent(subj) + "&body=" + encodeURIComponent(body);
     if (window.__spot3d) (fromUser ? window.__spot3d.select(s.id) : window.__spot3d.show(s.id));
   }
