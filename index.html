@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Davide Sanrocco · Atleta Hyrox · Verso il Pro</title>
-<meta name="description" content="Davide Sanrocco, atleta Hyrox: prima sotto l'ora in Open, poi la categoria Pro. Cerco aziende partner per la stagione 2026/27.">
-<meta property="og:title" content="Davide Sanrocco · Verso il Pro">
-<meta property="og:description" content="Atleta Hyrox. Prima sotto l'ora in Open, poi la categoria Pro. Cerco aziende partner per la stagione 2026/27.">
+<title>Davide Sanrocco · Il tuo logo, ovunque io sia</title>
+<meta name="description" content="Il tuo logo in gara con me nella stagione Hyrox 2026/27: sette posizioni esclusive, visibilità definita prima della gara e anteprima 3D del logo prima di decidere.">
+<meta property="og:title" content="Il tuo logo, ovunque io sia · Davide Sanrocco">
+<meta property="og:description" content="Sette posizioni sul mio corpo per la stagione Hyrox 2026/27, a Milano e Verona. Prova il tuo logo in 3D prima di decidere.">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#000000">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -218,6 +218,27 @@ footer{border-top:1px solid var(--line);padding:2.5rem 0}
 footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;font-size:.82rem;color:var(--muted)}
 footer .big{font-stretch:62%;font-weight:900;text-transform:uppercase;font-size:clamp(3rem,12vw,10rem);line-height:.8;color:var(--text);width:100%;margin-bottom:1.5rem}
 
+/* Vantaggi */
+.data{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;margin-top:3rem;padding-top:2rem;border-top:1px solid var(--line)}
+.data b{display:block;font-stretch:62%;font-weight:900;font-size:clamp(2.6rem,5vw,4.2rem);line-height:.9;color:var(--accent)}
+.data span{display:block;color:var(--muted);font-size:.92rem;margin-top:.4rem;max-width:30ch}
+@media (max-width:900px){.data{grid-template-columns:1fr 1fr;gap:1.6rem}}
+.deadline{font-size:.85rem;font-weight:600;color:var(--text);margin:1.1rem 0 0}
+.deadline::before{content:"";display:inline-block;width:.5rem;height:.5rem;background:var(--accent);margin-right:.5rem;vertical-align:.08em}
+
+@media (max-width:520px){.top .btn.sm{padding-left:.75rem;padding-right:.75rem;font-size:.78rem}}
+
+/* Domande frequenti */
+.faq-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(2rem,5vw,5rem);align-items:start}
+.faq details{border-bottom:1px solid var(--line)}
+.faq details:first-child{border-top:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;padding:1.2rem 2.5rem 1.2rem 0;font-weight:700;font-size:1.08rem;position:relative}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";position:absolute;right:0;top:50%;transform:translateY(-50%);color:var(--accent);font-size:1.6rem;font-weight:400;transition:transform .2s}
+.faq details[open] summary::after{transform:translateY(-50%) rotate(45deg)}
+.faq details p{color:var(--muted);font-size:.95rem;margin:0 0 1.3rem}
+@media (max-width:900px){.faq-grid{grid-template-columns:1fr}}
+
 /* Comparsa allo scorrimento (solo se il JS è attivo) */
 .js .rv{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.8,.2,1)}
 .js .rv.in{opacity:1;transform:none}
@@ -231,11 +252,11 @@ footer .big{font-stretch:62%;font-weight:900;text-transform:uppercase;font-size:
   <div class="wrap">
     <a class="brand" href="#"><b>Davide Sanrocco</b><span>Atleta Hyrox</span></a>
     <nav>
-      <a href="#spazio">Spazi</a>
-      <a href="#percorso">Percorso</a>
+      <a href="#vantaggi">Vantaggi</a>
+      <a href="#spazio">Posizioni</a>
       <a href="#partner">Su misura</a>
       <a href="#gare">Gare</a>
-      <a href="#in-gara">In gara</a>
+      <a href="#faq">Domande</a>
       <a class="btn sm" href="#spazio">Prenota uno spazio</a>
     </nav>
   </div>
@@ -246,13 +267,14 @@ footer .big{font-stretch:62%;font-weight:900;text-transform:uppercase;font-size:
   <div class="bigname" aria-hidden="true">Sanrocco</div>
   <div class="wrap hero-grid">
     <div>
-      <p class="eyebrow">Atleta Hyrox · Stagione 2026/27</p>
-      <h1 class="cond">Verso<br>il <em>Pro.</em></h1>
-      <p class="lead">Otto chilometri, otto stazioni, un cronometro da battere. Prima sotto l'ora in Open, poi la categoria Pro. Cerco aziende partner che vogliano associare il proprio marchio al mio percorso.</p>
+      <p class="eyebrow">Stagione Hyrox 2026/27 · Milano · Verona</p>
+      <h1 class="cond">Il tuo logo,<br><em>ovunque</em><br>io sia.</h1>
+      <p class="lead">Sette posizioni sul mio corpo, una per azienda. Visibilità definita prima della gara e anteprima 3D del tuo logo prima di decidere.</p>
       <div class="ctas">
-        <a class="btn" href="#spazio">Prenota uno spazio <span class="arr">→</span></a>
-        <a class="btn line" href="https://www.instagram.com/davidesanrocco/" target="_blank" rel="noopener">Instagram</a>
+        <a class="btn" href="#spazio">Scegli la tua posizione <span class="arr">→</span></a>
+        <a class="btn line" href="#vantaggi">Cosa ottieni</a>
       </div>
+      <p class="deadline">Prenotazioni per Milano entro il 13 novembre 2026</p>
     </div>
 
     <div class="arena" id="arena" role="img" aria-label="Avatar di Davide con la sandbag che ruota a 360 gradi: trascina per girarlo">
@@ -273,11 +295,32 @@ footer .big{font-stretch:62%;font-weight:900;text-transform:uppercase;font-size:
   <span>SkiErg</span><span>Sled Push</span><span>Sled Pull</span><span>Burpee Broad Jumps</span><span>Rowing</span><span>Farmers Carry</span><span>Sandbag Lunges</span><span>Wall Balls</span>
 </div></div>
 
+<section class="block" id="vantaggi">
+  <div class="wrap">
+    <p class="eyebrow rv">Cosa ottieni</p>
+    <h2 class="rv">Visibilità<br>definita prima.</h2>
+    <p class="muted rv" style="font-size:1.05rem;max-width:56ch;margin-bottom:2.2rem">Sai fin dall'inizio cosa ricevi, dove compare il tuo marchio e come lo racconto. Ogni posizione è assegnata a una sola azienda.</p>
+    <div class="funds rv">
+      <div><i>01</i><h3>Il tuo logo in gara</h3><p>Sul mio corpo a Milano e Verona, presente in ogni foto e video della gara.</p></div>
+      <div><i>02</i><h3>Contenuti per i tuoi canali</h3><p>Un post dedicato, le stories di gara con menzione e foto in alta risoluzione da usare liberamente.</p></div>
+      <div><i>03</i><h3>Report dopo ogni gara</h3><p>Tempi, contenuti pubblicati e risultati ottenuti, condivisi con te a gara conclusa.</p></div>
+      <div><i>04</i><h3>Anteprima prima di pagare</h3><p>Carichi il logo e lo vedi su di me in 3D, nella posizione scelta, prima di prenotare.</p></div>
+    </div>
+    <div class="data rv">
+      <div><b>3.000</b><span>atleti alla prima gara Hyrox, nel 2017</span></div>
+      <div><b>1,5M</b><span>atleti nella stagione 2025/26</span></div>
+      <div><b>2M+</b><span>atleti attesi nella stagione 2026/27</span></div>
+      <div><b>LVMH</b><span>a settembre 2026 L Catterton, fondo legato a LVMH, ha acquisito la maggioranza di Hyrox</span></div>
+    </div>
+    <p class="tiny rv">Fonti: Hyrox, Inc., Bloomberg.</p>
+  </div>
+</section>
+
 <section class="block" id="spazio">
   <div class="wrap">
     <p class="eyebrow rv">Spazi partner</p>
     <h2 class="rv">Scegli la posizione<br>del tuo marchio.</h2>
-    <p class="muted rv" style="font-size:1.05rem;max-width:56ch;margin-bottom:2.2rem">Seleziona la posizione, visualizza l'anteprima con il tuo logo e prenota in pochi minuti. Il tuo marchio sarà presente in gara a Milano e Verona.</p>
+    <p class="muted rv" style="font-size:1.05rem;max-width:56ch;margin-bottom:2.2rem">Seleziona la posizione, visualizza l'anteprima con il tuo logo e prenota in pochi minuti. Il tuo marchio sarà presente in gara a Milano e Verona.<br><b style="color:var(--text)">Prenotazioni per Milano entro il 13 novembre 2026.</b></p>
     <div class="shop rv">
       <div class="viewer" id="viewer" aria-label="Anteprima a 360° con il logo: trascina per ruotare">
         <div class="vbadge"><span id="vSpot">Petto</span><em id="vType">Divisa</em></div>
@@ -320,23 +363,7 @@ footer .big{font-stretch:62%;font-weight:900;text-transform:uppercase;font-size:
 </section>
 
 
-<section class="block" id="percorso">
-  <div class="wrap">
-    <p class="eyebrow rv">Il percorso</p>
-    <h2 class="rv">Tre tappe.<br>Nessuna scorciatoia.</h2>
-    <ol class="road rv">
-      <li class="now"><b>1:12:54</b><span>Oggi. Il punto di partenza.</span></li>
-      <li class="next"><b>Sub 60</b><span>Sotto l'ora in categoria Open.</span></li>
-      <li><b>Pro</b><span>Carichi più elevati, il livello più alto della competizione.</span></li>
-    </ol>
-    <div class="funds rv">
-      <div><i>01</i><h3>Palestra e coaching</h3><p>Programmazione e un allenatore che segua ogni blocco di lavoro.</p></div>
-      <div><i>02</i><h3>Equipment</h3><p>Scarpe da gara, abbigliamento tecnico, attrezzi per sled e wall ball.</p></div>
-      <div><i>03</i><h3>Gare</h3><p>Iscrizioni, viaggi e alloggi per le tappe in Italia e all'estero.</p></div>
-      <div><i>04</i><h3>Recupero</h3><p>Nutrizione e fisioterapia: determinanti per la prestazione.</p></div>
-    </div>
-  </div>
-</section>
+
 
 <section class="block" id="partner">
   <div class="wrap partner-grid">
@@ -376,6 +403,24 @@ footer .big{font-stretch:62%;font-weight:900;text-transform:uppercase;font-size:
   </div>
 </section>
 
+<section class="block" id="percorso">
+  <div class="wrap">
+    <p class="eyebrow rv">Dove va il tuo contributo</p>
+    <h2 class="rv">Tre tappe.<br>Nessuna scorciatoia.</h2>
+    <ol class="road rv">
+      <li class="now"><b>1:12:54</b><span>Oggi. Il punto di partenza.</span></li>
+      <li class="next"><b>Sub 60</b><span>Sotto l'ora in categoria Open.</span></li>
+      <li><b>Pro</b><span>Carichi più elevati, il livello più alto della competizione.</span></li>
+    </ol>
+    <div class="funds rv">
+      <div><i>01</i><h3>Palestra e coaching</h3><p>Programmazione e un allenatore che segua ogni blocco di lavoro.</p></div>
+      <div><i>02</i><h3>Equipment</h3><p>Scarpe da gara, abbigliamento tecnico, attrezzi per sled e wall ball.</p></div>
+      <div><i>03</i><h3>Gare</h3><p>Iscrizioni, viaggi e alloggi per le tappe in Italia e all'estero.</p></div>
+      <div><i>04</i><h3>Recupero</h3><p>Nutrizione e fisioterapia: determinanti per la prestazione.</p></div>
+    </div>
+  </div>
+</section>
+
 <section class="block" id="gare">
   <div class="wrap">
     <p class="eyebrow rv">Calendario</p>
@@ -397,6 +442,24 @@ footer .big{font-stretch:62%;font-weight:900;text-transform:uppercase;font-size:
     </div>
   </div>
 </section>
+
+<section class="block" id="faq">
+  <div class="wrap faq-grid">
+    <div class="rv">
+      <p class="eyebrow">Domande frequenti</p>
+      <h2>Prima di<br>prenotare.</h2>
+      <button class="btn" type="button" data-contact>Hai un'altra domanda? <span class="arr">→</span></button>
+    </div>
+    <div class="faq rv">
+      <details><summary>Che dimensioni ha il logo?</summary><p>Dipende dalla posizione scelta. Il formato viene concordato insieme partendo dal tuo file, per garantire che il marchio sia leggibile in foto e video.</p></details>
+      <details><summary>Il tattoo resta visibile per tutta la gara?</summary><p>Sì. È un tatuaggio temporaneo applicato il giorno della gara, pensato per restare visibile dalla partenza al traguardo.</p></details>
+      <details><summary>Entro quando devo inviare il logo?</summary><p>Per Milano entro il 13 novembre 2026, per Verona entro il 7 gennaio 2027. Servono i tempi di produzione del tattoo o della personalizzazione della divisa.</p></details>
+      <details><summary>Posso vedere il risultato prima di prenotare?</summary><p>Sì. Nella sezione Posizioni carichi il tuo logo e lo vedi sul mio avatar 3D, nella posizione che preferisci. Il file resta sul tuo dispositivo.</p></details>
+      <details><summary>Cosa ricevo dopo la gara?</summary><p>Un report con tempi, contenuti pubblicati e risultati, insieme alle foto di gara in alta risoluzione da usare sui tuoi canali.</p></details>
+      <details><summary>Posso collaborare con prodotti o servizi?</summary><p>Sì. Oltre al contributo economico, la collaborazione può avvenire tramite fornitura di prodotti o servizi. Scrivimi e definiamo insieme la formula.</p></details>
+    </div>
+  </div>
+</section>
 </main>
 
 <dialog id="contact" aria-labelledby="ctitle">
@@ -414,7 +477,7 @@ footer .big{font-stretch:62%;font-weight:900;text-transform:uppercase;font-size:
 
 <footer>
   <div class="wrap">
-    <div class="big">Verso il Pro.</div>
+    <div class="big">Ovunque io sia.</div>
     <span>Davide Sanrocco · <a href="mailto:davidesanrocco0308@gmail.com">davidesanrocco0308@gmail.com</a> · <a href="https://www.instagram.com/davidesanrocco/" target="_blank" rel="noopener">@davidesanrocco</a></span>
     <span>Hyrox è un marchio dei rispettivi titolari; questa è una pagina personale dell'atleta.</span>
   </div>
