@@ -594,9 +594,16 @@ const CONFIG = {
     function placeholder(){
       const c = document.createElement("canvas"); c.width = 512; c.height = 256;
       const g = c.getContext("2d");
-      g.fillStyle = "#FFD500"; g.fillRect(0, 0, 512, 256);
-      g.fillStyle = "#000"; g.font = "900 78px Archivo, 'Arial Narrow', Arial, sans-serif"; g.textAlign = "center"; g.textBaseline = "middle";
-      g.fillText("IL TUO", 256, 92); g.fillText("LOGO", 256, 172);
+      // tatuaggio d'esempio: inchiostro scuro su fondo trasparente, disegnato in "moltiplica" sulla pelle
+      c.width = 400; c.height = 400;
+      g.strokeStyle = g.fillStyle = "#17191E"; g.lineWidth = 10;
+      g.beginPath(); g.arc(200, 200, 184, 0, Math.PI * 2); g.stroke();
+      g.lineWidth = 5; g.beginPath(); g.arc(200, 200, 160, 0, Math.PI * 2); g.stroke();
+      g.beginPath();
+      for (let i = 0; i < 10; i++){ const r = i % 2 ? 11 : 26, a = -Math.PI / 2 + i * Math.PI / 5; g.lineTo(200 + r * Math.cos(a), 80 + r * Math.sin(a)); }
+      g.closePath(); g.fill();
+      g.font = "900 82px Archivo, 'Arial Narrow', Arial, sans-serif"; g.textAlign = "center"; g.textBaseline = "middle";
+      g.fillText("IL TUO", 200, 196); g.fillText("LOGO", 200, 278);
       return c;
     }
     let logo = placeholder(), cur = "petto";
@@ -628,7 +635,7 @@ const CONFIG = {
       ctx.save();
       ctx.globalAlpha = Math.min(1, (c - .12) / .25) * .95;
       ctx.translate(x, y); ctx.scale(Math.max(c, .2), 1);
-      ctx.shadowColor = "rgba(0,0,0,.35)"; ctx.shadowBlur = 4 * vz;
+      ctx.globalCompositeOperation = "multiply"; ctx.filter = "blur(.4px)";   // effetto tatuaggio: l'inchiostro si fonde con la pelle
       ctx.drawImage(logo, -w/2, -h/2, w, h);
       ctx.restore();
     }
@@ -642,7 +649,7 @@ const CONFIG = {
       const edge = Math.min(u - (lo - 1), (hi + 1) - u);
       const w = s.w * sc, h = w * logo.height / logo.width;
       ctx.save(); ctx.globalAlpha = Math.max(0, Math.min(1, edge / 2)) * .95;
-      ctx.shadowColor = "rgba(0,0,0,.35)"; ctx.shadowBlur = 6;
+      ctx.globalCompositeOperation = "multiply"; ctx.filter = "blur(.4px)";
       ctx.drawImage(logo, x - w/2, y - h/2, w, h); ctx.restore();
     }
     function tick(ts){
