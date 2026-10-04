@@ -353,6 +353,8 @@ section.block{padding:clamp(5rem,11vw,9rem) 0;border-top:1px solid var(--line)}
 footer .big{font-size:clamp(2.6rem,9vw,7.5rem);text-transform:uppercase}
 footer .big{color:var(--text)}
 
+/* Posizioni e listino come prima sezione */
+main>#spazio:first-child{border-top:0;padding-top:clamp(2.5rem,5vw,4rem)}
 /* Hero senza avatar: testo e tempi affiancati */
 .hero-grid{grid-template-columns:minmax(0,1.5fr) minmax(0,1fr)}
 @media (max-width:1060px){.hero-grid{grid-template-columns:1fr}}
@@ -376,6 +378,52 @@ footer .big{color:var(--text)}
 </header>
 
 <main>
+<section class="block" id="spazio">
+  <div class="wrap">
+    <p class="eyebrow rv">Spazi partner</p>
+    <h2 class="rv">Scegli la posizione<br>del tuo marchio.</h2>
+    <p class="muted rv" style="font-size:1.05rem;max-width:56ch;margin-bottom:2.2rem">Seleziona la posizione, visualizza l'anteprima con il tuo logo e prenota in pochi minuti. Il tuo marchio sarà presente in gara a Milano e Verona.</p>
+    <div class="shop rv">
+      <div class="viewer" id="viewer" aria-label="Anteprima a 360° con il logo: trascina per ruotare">
+        <div class="vbadge"><span id="vSpot">Petto</span><em id="vType">Divisa</em></div>
+        <div class="vhint">↔ Trascina per ruotare</div>
+        <button type="button" class="vzoom" id="vZoom" hidden>🔍 Zoom sul logo</button>
+        <div class="vfallback" id="vFallback">Anteprima non disponibile su questo browser.</div>
+      </div>
+      <div class="order">
+        <ol class="steps">
+          <li>
+            <label for="spotSel"><b>01</b> Dove vuoi il tuo logo?</label>
+            <div class="selwrap"><select id="spotSel"></select></div>
+          </li>
+          <li>
+            <span class="lbl"><b>02</b> Guarda l'anteprima con il tuo logo</span>
+            <label class="upload"><input type="file" id="logoIn" accept="image/png,image/jpeg,image/svg+xml,image/webp"><span id="upTxt">Carica il tuo logo</span></label>
+            <p class="tiny">Il file non viene caricato online: è utilizzato esclusivamente per l'anteprima.</p>
+          </li>
+          <li>
+            <span class="lbl"><b>03</b> Prenota</span>
+            <div class="price"><b id="price">500 €</b><span id="priceNote">stagione 2026/27 · Milano + Verona</span></div>
+            <ul class="incl">
+              <li>Il tuo logo in gara a Milano e Verona</li>
+              <li>Un post dedicato e la menzione nelle stories di gara</li>
+              <li>Foto di gara in alta risoluzione per i tuoi canali di comunicazione</li>
+              <li>Il tuo marchio nella sezione partner del sito</li>
+            </ul>
+            <a class="btn wide" id="payBtn" href="#" target="_blank" rel="noopener">Prenota questo spazio <span class="arr">→</span></a>
+            <p class="tiny" id="payNote"></p>
+          </li>
+          <li>
+            <span class="lbl"><b>04</b> Invia il logo</span>
+            <a class="btn line wide" id="sendLogo" href="#" target="_blank" rel="noopener">Invia il logo via Gmail</a>
+            <p class="tiny">In alternativa, tramite <a href="https://ig.me/m/davidesanrocco" target="_blank" rel="noopener">Instagram</a>. La prenotazione è confermata alla ricezione del pagamento e del logo. Per ricevuta o esigenze amministrative, <button type="button" class="linkish" data-contact>contattami prima del pagamento</button>.</p>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="hero">
   <div class="bigname" aria-hidden="true">Sanrocco</div>
   <div class="wrap hero-grid">
@@ -431,51 +479,7 @@ footer .big{color:var(--text)}
   </div>
 </section>
 
-<section class="block" id="spazio">
-  <div class="wrap">
-    <p class="eyebrow rv">Spazi partner</p>
-    <h2 class="rv">Scegli la posizione<br>del tuo marchio.</h2>
-    <p class="muted rv" style="font-size:1.05rem;max-width:56ch;margin-bottom:2.2rem">Seleziona la posizione, visualizza l'anteprima con il tuo logo e prenota in pochi minuti. Il tuo marchio sarà presente in gara a Milano e Verona.</p>
-    <div class="shop rv">
-      <div class="viewer" id="viewer" aria-label="Anteprima a 360° con il logo: trascina per ruotare">
-        <div class="vbadge"><span id="vSpot">Petto</span><em id="vType">Divisa</em></div>
-        <div class="vhint">↔ Trascina per ruotare</div>
-        <button type="button" class="vzoom" id="vZoom" hidden>🔍 Zoom sul logo</button>
-        <div class="vfallback" id="vFallback">Anteprima non disponibile su questo browser.</div>
-      </div>
-      <div class="order">
-        <ol class="steps">
-          <li>
-            <label for="spotSel"><b>01</b> Dove vuoi il tuo logo?</label>
-            <div class="selwrap"><select id="spotSel"></select></div>
-          </li>
-          <li>
-            <span class="lbl"><b>02</b> Guarda l'anteprima con il tuo logo</span>
-            <label class="upload"><input type="file" id="logoIn" accept="image/png,image/jpeg,image/svg+xml,image/webp"><span id="upTxt">Carica il tuo logo</span></label>
-            <p class="tiny">Il file non viene caricato online: è utilizzato esclusivamente per l'anteprima.</p>
-          </li>
-          <li>
-            <span class="lbl"><b>03</b> Prenota</span>
-            <div class="price"><b id="price">500 €</b><span id="priceNote">stagione 2026/27 · Milano + Verona</span></div>
-            <ul class="incl">
-              <li>Il tuo logo in gara a Milano e Verona</li>
-              <li>Un post dedicato e la menzione nelle stories di gara</li>
-              <li>Foto di gara in alta risoluzione per i tuoi canali di comunicazione</li>
-              <li>Il tuo marchio nella sezione partner del sito</li>
-            </ul>
-            <a class="btn wide" id="payBtn" href="#" target="_blank" rel="noopener">Prenota questo spazio <span class="arr">→</span></a>
-            <p class="tiny" id="payNote"></p>
-          </li>
-          <li>
-            <span class="lbl"><b>04</b> Invia il logo</span>
-            <a class="btn line wide" id="sendLogo" href="#" target="_blank" rel="noopener">Invia il logo via Gmail</a>
-            <p class="tiny">In alternativa, tramite <a href="https://ig.me/m/davidesanrocco" target="_blank" rel="noopener">Instagram</a>. La prenotazione è confermata alla ricezione del pagamento e del logo. Per ricevuta o esigenze amministrative, <button type="button" class="linkish" data-contact>contattami prima del pagamento</button>.</p>
-          </li>
-        </ol>
-      </div>
-    </div>
-  </div>
-</section>
+
 
 
 
@@ -612,8 +616,8 @@ const CONFIG = {
   listino: [
     { id: "petto",       nome: "Petto",       gruppo: "divisa", prezzo: 500, preso: false, link: "" },
     { id: "schiena",     nome: "Schiena",     gruppo: "divisa", prezzo: 350, preso: false, link: "" },
-    { id: "spalla",      nome: "Spalla",      gruppo: "tattoo", prezzo: 200, preso: false, link: "" },
-    { id: "bicipite",    nome: "Bicipite",    gruppo: "tattoo", prezzo: 180, preso: false, link: "" }
+    { id: "bicipite",    nome: "Bicipite",    gruppo: "tattoo", prezzo: 180, preso: false, link: "" },
+    { id: "polpaccio",   nome: "Polpaccio",   gruppo: "tattoo", prezzo: 120, preso: false, link: "" }
   ],
   spazi: 4,           // quanti spazi partner mostrare in totale
   partner: [
@@ -763,7 +767,7 @@ const CONFIG = {
       stinco:      {w: 30, z: 2.2, best: 0, track: [[56,334,446],[58,319,441],[62,266,444],[67,286,428],[71,291,432],[75,324,428]]},
       // sulle braccia alzate il modello a cilindro non basta: posizioni misurate fotogramma per fotogramma (braccio destro)
       spalla:      {w: 34, z: 2.4, best: 0, track: [[54,215,198],[58,200,201],[62,205,203],[67,203,204],[71,210,203],[75,225,193]]},
-      bicipite:    {w: 34, z: 2.4, best: 0, track: [[54,206,208],[58,172,221],[62,172,227],[67,173,227],[71,174,227],[75,201,211]]},
+      bicipite:    {w: 34, z: 2.4, best: 0, track: [[54,322,238],[56,329,236],[60,350,240],[62,352,236],[64,356,234],[67,358,231],[69,352,233],[71,341,240],[73,337,241]]},   // braccio sinistro, senza tatuaggi
       avambraccio: {w: 28, z: 2.4, best: 0, track: [[54,230,170],[58,190,166],[62,183,173],[67,175,182],[71,189,173],[75,228,166]]},
       polpaccio:   {phi: 180*D,   r: 26,  y: 476, w: 30, dx: -28, z: 2.2}
     };
